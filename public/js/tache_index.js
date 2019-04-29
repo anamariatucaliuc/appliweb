@@ -8,25 +8,6 @@ function mainController($scope,$http,$window){
 	$scope.form = {};
 
 
-	/*$http.get('/getTaskSet/' + p)
-		.success(function(data){
-			$scope.laliste = data;
-			console.log(data);
-		})
-
-		.error(function(data){
-			console.log('Error: ' + data);
-		});
-
-	$http.get('/getAllGroup/' + p)
-		.success(function(data){
-			$scope.groupe = data;
-			console.log(data);
-		})
-
-		.error(function(data){
-			console.log('Error: ' + data);
-		});*/
 
 	$http.get('/getTaskGrouped/' + p + "/" + groupe)
 		.success(function(data){
