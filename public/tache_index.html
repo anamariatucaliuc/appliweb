@@ -1,0 +1,110 @@
+<!doctype html>
+<html ng-app="ListeaFaire">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script src="js/tache_index.js"></script>
+	<title>Liste Choses à Faire</title>
+	<style>
+		.notdone {
+			color: rgb(87, 11, 11);
+			text-decoration: none;
+		}
+
+		.done {
+			color: green;
+			text-decoration: line-through;
+		}
+
+		body {
+			color: black;
+			background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d0/Background-clouds.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			height: relative;
+		}
+
+		/* Full-width input fields */
+		input[type=text],
+		input[type=password] {
+			width: 100%;
+			padding: 15px;
+			margin: 5px 0 22px 0;
+			display: inline-block;
+			border: none;
+			background: #f1f1f1;
+		}
+
+		input[type=text]:focus,
+		input[type=password]:focus {
+			background-color: #ddd;
+			outline: none;
+		}
+
+		hr {
+			border: 1px solid #f1f1f1;
+			margin-bottom: 25px;
+		}
+
+		/* Set a style for all buttons */
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+			opacity: 0.9;
+		}
+
+		button:hover {
+			opacity: 1;
+		}
+	</style>
+
+</head>
+
+<body ng-controller="mainController">
+	<h1 class="row justify-content-center"> === Taches ToDo de la liste === </h1>
+	<button class="btn btn-dark" ng-click="logout()"> Déconnexion </button>
+	<button class="btn btn-light" ng-click="backGroups()"> Retour </button>
+
+	<br/> <div class="row justify-content-center">=== Nombre de tâches : {{ laliste.length }} de la liste === </div> <br/> <br/>
+	
+	<div class="row">
+		<div class="col-md-1"> </div>
+		<div id="todo-list" class="col-md-8">
+			<div ng-repeat="x in laliste" class="row">
+					<div class="col-md-2"> 
+						<button ng-click="deleteTodo(x._id)" class="btn btn-danger"> delete  {{ x.name }} </button>
+						<button id="btncheck" ng-click="checkTask(x._id)" ng-class="{'btn btn-success':x.done=='true', 'btn btn-warning':x.done=='false'}"> ✓ Check if done </button>
+					</div>
+					<div class="col-md-3">
+						<h5 id="taskname" ng-class="{'done': x.done=='true', 'notdone': x.done=='false'}"> {{ x.name }} </h5>
+					</div>
+					<input type="text" placeholder="écrire quelque chose" ng-model="formData.name">
+					<button type="submit" ng-click="modifyTask(x._id)"> Modifier </button>
+				</div>
+		</div>
+
+	
+
+		<div id="todo-form" class="col-md-2">
+			<div> <button type="submit" onclick="showTextBox('champ')"> Ajouter une tâche </button> </div>
+			<br/>
+			<br/>
+			<div id="champ" style="visibility:hidden">
+				<input type="text" placeholder="Nom" ng-model="form.name">
+				<button type="submit" ng-click="createTodo()" onclick="hideTextBox('champ')"> OK </button>
+				<br/>
+				<button type="submit" onclick="hideTextBox('champ')"> Annuler </button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

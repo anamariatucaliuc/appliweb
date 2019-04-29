@@ -1,0 +1,139 @@
+<!doctype html>
+<html ng-app="ListeaFaire">
+<head>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+    <title>Bienvenue sur la ToDo List</title>
+    <script src="js/utilisateur_index.js"></script>
+    <style>
+        body {
+            color: black;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d0/Background-clouds.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: relative;
+        }
+
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body ng-controller="mainController">
+    <div class='navbar navbar-inverse navbar-fixed-top headroom'>
+        <div class='container'>
+            <div class='navbar-collapse collapse'>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <p> </p>
+    <p> </p>
+    <div class="row">
+        <div id="todo-form" class="col-md-1"> </div>
+
+        <div id="todo-form" class="col-md-4 login-form-1">
+            <h3>Connexion ToDo List</h3>
+            <form>
+                <input type="text" class="form-control" placeholder="Pseudo" ng-model="form.pseudo">
+                <br />
+                <input type="password" class="form-control" placeholder="Mdp" ng-model="form.mdp">
+                <br />
+                <button type="submit" class="btnSubmit" ng-click="login()"> Se connecter </button>
+            </form>
+        </div>
+
+        <div id="todo-form" class="col-md-2"> </div>
+
+        <div id="todo-form" class="col-md-4 login-form-2">
+            <h3>Inscription</h3>
+            <form>
+                <input type="text" class="form-control" placeholder="Pseudo" ng-model="formData.pseudo">
+                <br />
+                <input type="password" class="form-control" placeholder="Mdp" ng-model="formData.mdp">
+                <br />
+                <button type="submit" class="btnSubmit" ng-click="register()"> S'inscrire </button>
+            </form>
+        </div>
+
+        <div id="todo-form" class="col-md-1"> </div>
+    </div>
+
+    <div class="container content">
+        <div class="container text-center">
+            <br> <br>
+            <h2 class="thin">Bienvenu sur ToDo List Polytech</h2>
+            <p class="text-muted">
+                Ici, vous pourrez créer vos propre liste de tâches et la partager aussi .<br>
+                Top organisation!<br>
+            </p>
+            <p class="text-muted">
+                N'attendez pas plus longtemps pour vous inscrire!<br>
+                Vous avez déjà un compte ? Il suffit d'introduire identifiants!
+            </p>
+            <p class="text-muted">
+                N'attendez pas plus longtemps pour créer un compte !
+            </p>
+        </div>
+    </div>
+
+    <footer class='top-space'>
+        <div>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-md-6 widget'>
+                        <div class='widget-body'>
+                            <p class='simplenav'>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
